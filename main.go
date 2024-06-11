@@ -53,28 +53,17 @@ func isNum(word string) bool {
 func longestWord(sentence string) string {
 	word := ""
 	temp := ""
-	// countTemp := 0
-	// countMax := 0
-	// maxLength := 0
 	for i := 0; i < len(sentence); i++ {
-		// fmt.Printf()
 		if string(sentence[i]) != " " {
-			// countTemp++
+
 			temp += string(sentence[i])
 			continue
 		}
-		// if countTemp > countMax {
-		// 	countMax = countTemp
-		// }
-
-		// else {
 		if len(temp) > len(word) {
 			word = temp
 		}
 		temp = ""
-		// }
 
-		// temp = ""
 	}
 	return fmt.Sprintf("%v: %v character", word, len(word))
 }
@@ -82,16 +71,15 @@ func longestWord(sentence string) string {
 // 3
 func wordCount(arrQuery []string, arrInput []string) (arrOutput []int) {
 
-	// mapWordToIsExist := map[string]bool{}
+	arrOutput = make([]int, 0, len(arrQuery))
 	mapWordToCount := map[string]int{}
-	// arrOutput = make([]int, len(arrQuery))
 	for _, wordInput := range arrInput {
 		mapWordToCount[wordInput]++
 	}
 
-	for _, wordQuery := range arrQuery {
-		arrOutput = append(arrOutput, mapWordToCount[wordQuery])
-		// arrOutput[i]
+	for i, wordQuery := range arrQuery {
+		// arrOutput = append(arrOutput, mapWordToCount[wordQuery])
+		arrOutput[i] = mapWordToCount[wordQuery]
 	}
 
 	return
