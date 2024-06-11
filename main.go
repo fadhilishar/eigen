@@ -71,7 +71,7 @@ func longestWord(sentence string) string {
 // 3
 func wordCount(arrQuery []string, arrInput []string) (arrOutput []int) {
 
-	arrOutput = make([]int, 0, len(arrQuery))
+	arrOutput = make([]int, len(arrQuery))
 	mapWordToCount := map[string]int{}
 	for _, wordInput := range arrInput {
 		mapWordToCount[wordInput]++
